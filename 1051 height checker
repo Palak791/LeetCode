@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int heightChecker(vector<int>& h) {
+         map<int,int> mp;
+        for(auto x:h){mp[x]++;}
+        int count=0;
+        int idx=0;
+        for(auto x:mp){
+            int temp=x.second;
+            while(temp>0){
+                if(h[idx]!=x.first){count++;}
+                temp--;
+                idx++;
+            }
+        }
+    return count;
+    }
+};
