@@ -22,7 +22,6 @@ public:
             return head;
         }
         count -= n;
-        free(temp);
         temp = head;
         while(--count ){
             temp = temp -> next;
