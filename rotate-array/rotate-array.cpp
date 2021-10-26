@@ -1,12 +1,17 @@
 class Solution {
 public:
-    void rotate(vector<int>& nums, int k) {
-        int n = nums.size();
-        if(n < 2) return ;
-        if(k > n) k %= n;
-        for(int i = 0;i < n-k;i++){
-            nums.push_back(nums[i]);
+    void reverse(vector<int> &nums ,int lo,int hi){
+        while(lo < hi){
+            swap(nums[lo++],nums[hi--]);
         }
-        nums.erase(nums.begin(),nums.begin()+n-k);
+    }
+    void rotate(vector<int>& nums, int k) {
+    // reversing array  till n-k and then from n-k till n.
+    // reversing complete array after  that;
+    int n = nums.size();
+    if(k > n)k= k%n;
+    reverse(nums , 0 , n-k-1);
+    reverse(nums, n-k,n-1);
+    reverse(nums,0,n-1);
     }
 };
